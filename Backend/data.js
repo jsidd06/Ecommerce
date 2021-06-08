@@ -17,7 +17,6 @@ const data = {
   ],
   products: [
     {
-      id: "1",
       name: "closer",
       category: "coat",
       image: "/images/a(1).jpeg",
@@ -29,7 +28,6 @@ const data = {
       description: "happy to shop",
     },
     {
-      id: "2",
       name: "fitinto",
       category: "shirt",
       image: "/images/a(1).jpg",
@@ -41,7 +39,6 @@ const data = {
       description: "happy to shop",
     },
     {
-      id: "3",
       name: "blaser",
       category: "coat",
       image: "/images/a(2).jpg",
@@ -53,7 +50,6 @@ const data = {
       description: "happy to shop",
     },
     {
-      id: "4",
       name: "buff browser",
       category: "blaser",
       image: "/images/a(3).jpg",
@@ -65,7 +61,6 @@ const data = {
       description: "carry to shop",
     },
     {
-      id: "5",
       name: "inside shirt",
       category: "shirt",
       image: "/images/a(1).jpeg",
@@ -77,7 +72,6 @@ const data = {
       description: "happy to shop",
     },
     {
-      id: "6",
       name: "loser",
       category: "blaser",
       image: "/images/a(4).jpg",
