@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import userRouter from "./Router/userRouter.js";
 import productRouter from "./Router/productRouter.js";
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended : true }));
 mongoose.connect(process.env.DB_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
