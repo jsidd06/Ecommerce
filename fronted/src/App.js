@@ -4,6 +4,7 @@ import { BrowserRouter, Link, Route } from "react-router-dom";
 import CartScreen from "./Screens/CartScreen";
 import HomeScreen from "./Screens/HomeScreen";
 import ProductScreen from "./Screens/ProductScreen";
+import SiginScreen from "./Screens/SiginScreen";
 
 
 function App() {
@@ -23,12 +24,13 @@ function App() {
                 <span className="badge">{cartItems.length}</span>
               )}
             </Link>
-            <Link to="/sigin">Sign in</Link>
+            <Link to="/signin">Sign in</Link>
           </div>
         </header>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>
           <Route path="/product/:id" component={ProductScreen}></Route>
+          <Route path="/signin" component={SiginScreen}></Route>
           <Route path="/" component={HomeScreen} exact></Route>
           
         </main>
