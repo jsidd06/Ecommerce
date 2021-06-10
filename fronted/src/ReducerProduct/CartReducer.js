@@ -2,12 +2,12 @@ import {
   CART_ADD_ITEM,
   CART_REMOVE_ITEM,
 } from "../components/ProductConstant/CartConstant";
+import { USER_SIGNOUT } from "../components/ProductConstant/userConstant";
 
 export const cartReducer = (state = { cartItems: [] }, action) => {
   switch (action.type) {
     case CART_ADD_ITEM:
       const item = action.payload;
-      console.log(state.cartItems)
       const existItem = state.cartItems.find( (x) => x.product === item.product );
       if (existItem) {
         return {

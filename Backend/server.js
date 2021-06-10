@@ -11,7 +11,11 @@ mongoose.connect(process.env.DB_STRING, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+}).then(res => {
+  console.log("Connected to the MongoDB Atlas")
+}).catch(error => {
+  console.log(error)
+})
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
