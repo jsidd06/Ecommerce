@@ -1,14 +1,28 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { saveShippingAddress } from "../components/ActionProduct/CartAction";
 import CheckOutStep from "../components/CheckOutStep";
 
-export default function ShippingAddressScreen() {
-  const [fullname, setFullName] = useState("");
-  const [address, setAddresss] = useState("");
-  const [city, setCity] = useState("");
-  const [postalCode, setPostalCode] = useState("");
-  const [country, setCountry] = useState("");
+export default function ShippingAddressScreen(props) {
+  const userSignin = useSelector((state) => state.userSignin)
+  const {userInfo} = userSignin
+  const cart = useSelector((state) => state.cart)
+  const {shippingAddress} = cart
+  if(!userInfo) {
+    props.history.push('/signin')
+  }
+  const [fullName, setFullName] = useState(shippingAddress.fullName);
+  const [address, setAddresss] = useState(shippingAddress.address);
+  const [city, setCity] = useState(shippingAddress.city);
+  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
+  const [country, setCountry] = useState(shippingAddress.country);
+  const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(
+      saveShippingAddress({ fullName, address, city, postalCode, country })
+    );
+    props.history.push("/payment");
   };
   return (
     <div>
@@ -23,7 +37,7 @@ export default function ShippingAddressScreen() {
             type="text"
             id="fullName"
             placeholder="Enter your full name"
-            value={fullname}
+            value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
           ></input>
@@ -74,7 +88,9 @@ export default function ShippingAddressScreen() {
         </div>
         <div>
           <label />
-          <button className="primary" type="submit">Continue</button>
+          <button className="primary" type="submit">
+            Continue
+          </button>
         </div>
       </form>
     </div>
