@@ -10,7 +10,7 @@ export default function RegisterScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
-  const rediect = props.location.search
+  const redirect = props.location.search
     ? props.location.search.split("=")[1]
     : "/";
   const userRegister = useSelector((state) => state.userRegister);
@@ -18,17 +18,17 @@ export default function RegisterScreen(props) {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    if(password !== confirmpassword){
-      alert("password is not match please check the password again")
-    } else{
+    if (password !== confirmpassword) {
+      alert("password is not match please check the password again");
+    } else {
       dispatch(register(name, email, password));
     }
   };
   useEffect(() => {
     if (userInfo) {
-      props.history.push(rediect);
+      props.history.push(redirect);
     }
-  }, [ props.history, rediect, userInfo]);
+  }, [props.history, redirect, userInfo]);
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
@@ -36,7 +36,7 @@ export default function RegisterScreen(props) {
           <h1>Create an Account</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
-        {error && <MessageBox variant="danger" >{error}</MessageBox>}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
           <label htmlfor="name">Name</label>
           <input
@@ -46,15 +46,15 @@ export default function RegisterScreen(props) {
             required
             onChange={(e) => setName(e.target.value)}
           ></input>
-        <div>
-          <label htmlfor="email">Email Address</label>
-          <input
-            type="email"
-            id="email"
-            placeholder="Enter your email address"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          ></input>
+          <div>
+            <label htmlfor="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your email address"
+              required
+              onChange={(e) => setEmail(e.target.value)}
+            ></input>
           </div>
         </div>
         <div>
@@ -86,7 +86,8 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <div>
-            Already have an account? <Link to="/signin">Sign-In</Link>
+            Already have an account?{" "}
+            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
           </div>
         </div>
       </form>

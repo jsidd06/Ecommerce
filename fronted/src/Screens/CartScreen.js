@@ -23,7 +23,7 @@ export default function CartScreen(props) {
   };
 
   const checkoutHandler = () => {
-      props.history.push('/siginin?rediect=shipping')
+      props.history.push('/signin?rediect=shipping')
   }
   return (
     <div className="row top">

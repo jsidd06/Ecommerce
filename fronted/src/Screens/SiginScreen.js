@@ -8,7 +8,7 @@ import MessageBox from "../components/MessageBox";
 export default function SiginScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const rediect = props.location.search
+  const redirect = props.location.search
     ? props.location.search.split("=")[1]
     : "/";
   const userSignin = useSelector((state) => state.userSignin);
@@ -20,9 +20,9 @@ export default function SiginScreen(props) {
   };
   useEffect(() => {
     if (userInfo) {
-      props.history.push(rediect);
+      props.history.push(redirect);
     }
-  }, [ props.history, rediect, userInfo]);
+  }, [props.history, redirect, userInfo]);
   return (
     <div>
       <form className="form" onSubmit={submitHandler}>
@@ -30,7 +30,7 @@ export default function SiginScreen(props) {
           <h1>Sign In</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
-        {error && <MessageBox variant="danger" >{error}</MessageBox>}
+        {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
           <label htmlfor="email">Email Address</label>
           <input
@@ -60,7 +60,10 @@ export default function SiginScreen(props) {
         <div>
           <label />
           <div>
-            New Customer? <Link to="/register">Create Your Account</Link>
+            New Customer?{" "}
+            <Link to={`/register?redirect=${redirect}`}>
+              Create Your Account
+            </Link>
           </div>
         </div>
       </form>
