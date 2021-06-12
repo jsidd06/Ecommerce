@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import userRouter from "./Router/userRouter.js";
 import productRouter from "./Router/productRouter.js";
+import orderRouter from "./Router/orderRouter.js";
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended : true }));
@@ -19,6 +20,7 @@ mongoose.connect(process.env.DB_STRING, {
 
 app.use("/api/users", userRouter);
 app.use("/api/products", productRouter);
+app.use('/api/orders', orderRouter);
 app.get("/", (req, res) => {
   res.send("server is started");
 });
