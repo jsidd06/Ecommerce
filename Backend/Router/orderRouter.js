@@ -15,14 +15,14 @@ orderRouter.post(
         orderItems: req.body.orderItems,
         shippingAddress: req.body.shippingAddress,
         paymentMethod: req.body.paymentMethod,
-        itemsprice: req.body.itemsprice,
-        shippingprice: req.body.shippingprice,
-        taxprice: req.body.taxprice,
-        totalprice: req.body.totalprice,
+        itemsPrice: req.body.itemsPrice,
+        shippingPrice: req.body.shippingPrice,
+        taxPrice: req.body.taxPrice,
+        totalPrice: req.body.totalPrice,
         user: req.user._id,
       });
-      const createdOrder = await order.save();
-      res.status(201).send({ message: 'New Order Created', order: createdOrder})
+      const createOrder = await order.save();
+      res.status(201).send({ message: 'New Order Created', order: createOrder})
     }
   })
 );
