@@ -12,4 +12,12 @@
 
 #do you want to run this project it very easy steps
 
-#just go to cd/backend or cd/fronted just do it one by one install npm i after done it start a file
+#just go to cd/backend or cd/fronted just do it one by one install npm i after done it 
+
+#Inside backend folder run this command nodemon server.js
+
+#after complete this 
+
+#go to inside fronted folder and run command npm start
+
+#project will be started on your screen
